@@ -20,6 +20,16 @@ pipeline {
                 '''
           }
       }
+     stage('iOS Archive') {
+        steps {
+            sh '''
+            echo "Create Archive starting..."
+            pwd
+            /usr/bin/xcodebuild -project ./Unity-iPhone.xcodeproj -scheme  Unity-iPhone  -configuration Release -archivePath jenkins-test.xcarchive archive
+            echo "Create Archive finished..."
+            '''
+        }
+    }
      
      stage('Test') { 
         steps { 
