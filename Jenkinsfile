@@ -4,7 +4,7 @@ pipeline {
    
    parameters {
     choice(name: 'build_type',
-      choices: 'Debug\nRelease',
+      choices: 'Release\nDebug',
       description: 'Select build type')
   }
 
