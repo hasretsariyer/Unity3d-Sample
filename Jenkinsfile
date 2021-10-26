@@ -12,7 +12,7 @@ pipeline {
      stage('Parse Mobile Provision Profile') { 
         steps { 
           sh '''
-           security cms -D -i $provisioning_profile_file_path >> temp.plist
+           security cms -D -i $uploaded_file >> temp.plist
            env.PROVISIONING_PROFILE_SPECIFIER=$(/usr/libexec/PlistBuddy -c 'print ":Name"' temp.plist)
            env.UUID=$(/usr/libexec/PlistBuddy -c 'print ":UUID"' temp.plist)
            '''
