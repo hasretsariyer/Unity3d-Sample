@@ -22,7 +22,7 @@ pipeline {
                sh '''
                 rm -rf Builds
                 echo "Unity Build starting..."
-                /Applications/Unity/Hub/Editor/2020.3.20f1/Unity.app/Contents/MacOS/Unity -quit -batchmode -projectPath ${PWD} -executeMethod "ExportTool.ExportXcodeProject" -logFile export.log
+                /Applications/Unity/Hub/Editor/2020.3.20f1/Unity.app/Contents/MacOS/Unity -quit -batchmode -projectPath ${PWD} -executeMethod "ExportTool.ExportXcodeProject" -buildType $build_type -logFile export.log
                 echo "Unity Build finished..."
                 '''
           }
