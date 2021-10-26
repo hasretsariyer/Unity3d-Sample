@@ -1,12 +1,19 @@
 pipeline { 
   
    agent any
+   
+   parameters {
+    choice(name: 'build_type',
+      choices: 'Debug\nRelease',
+      description: 'Select build type')
+  }
 
    stages {
    
      stage('Check location') { 
         steps { 
            sh 'echo ${PWD}' 
+           sh 'echo $params'
         }
      }
      
