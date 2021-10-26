@@ -35,7 +35,7 @@ pipeline {
             echo "Create Archive starting..."
             echo "${env.PROVISIONING_PROFILE_SPECIFIER}"
             pwd
-            /usr/bin/xcodebuild -project ./Unity-iPhone.xcodeproj -scheme  Unity-iPhone  -configuration Release -archivePath jenkins-test.xcarchive archive
+            /usr/bin/xcodebuild -project ./iOSProj/Unity-iPhone.xcodeproj -scheme  Unity-iPhone  -configuration Release -archivePath jenkins-test.xcarchive archive
             echo "Create Archive finished..."
             '''
         }
