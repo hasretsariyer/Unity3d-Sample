@@ -3,7 +3,7 @@ pipeline {
    agent any
    
    parameters {
-    choice(name: 'build_type', choices: 'Release\nDebug', description: 'Select build type'),
+    choice(name: 'build_type', choices: 'Release\nDebug', description: 'Select build type')
     file(name: 'uploaded_file', description: 'archive')
   }
 
