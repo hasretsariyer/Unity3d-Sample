@@ -68,7 +68,7 @@ pipeline {
         }
         post {
             always {
-                archiveArtifacts artifacts: '**/*.xcarchive.*', onlyIfSuccessful: true
+                archiveArtifacts artifacts: 'outputFolder/**/*.*'
             }
         }
     }
