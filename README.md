@@ -115,4 +115,11 @@ ipa file is distributed via appcircle cli after successful build.
 
 Download appcircle cli -> https://github.com/appcircleio/appcircle-cli
 
-![Uploading Screen Shot 2021-10-27 at 20.38.36.png…]()
+<img width="1073" alt="Screen Shot 2021-10-27 at 20 48 29" src="https://user-images.githubusercontent.com/20642286/139124352-81f140a8-83e6-4bf4-8bab-5a7026154948.png">
+
+
+# Jenkins Stage View
+
+
+<img width="865" alt="Screen Shot 2021-10-27 at 21 21 45" src="https://user-images.githubusercontent.com/20642286/139124299-fa2d1909-d84d-4601-a6fb-5cde7ffd706e.png">
+
