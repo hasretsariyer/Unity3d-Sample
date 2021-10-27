@@ -12,7 +12,7 @@ pipeline {
    
      stage('Parse Mobile Provision Profile') { 
         steps { 
-          sh '''
+          sh """
            # https://issues.jenkins.io/browse/JENKINS-47333
            # https://github.com/jenkins-infra/jenkins.io/pull/2388
            # https://github.com/MarkEWaite/jenkins-bugs/blob/JENKINS-47333/Jenkinsfile#L11
@@ -20,9 +20,9 @@ pipeline {
            security cms -D -i $provisioning_profile_path >> temp.plist
            PROVISIONING_PROFILE_SPECIFIER="$(/usr/libexec/PlistBuddy -c 'print ":Name"' temp.plist)"
            UUID="$(/usr/libexec/PlistBuddy -c 'print ":UUID"' temp.plist)"
-           env.profile_Specifier = $PROVISIONING_PROFILE_SPECIFIER
+           env.PROVISIONING_PROFILE_SPECIFIER = $PROVISIONING_PROFILE_SPECIFIER
            env.uuid = $UUID
-           '''
+           """
         }
      }
      
@@ -38,13 +38,13 @@ pipeline {
       }
      stage('iOS Archive') {
         steps {
-            sh '''
+            sh """
             echo "Create Archive starting..."
             echo "${env.PROVISIONING_PROFILE_SPECIFIER}"
             pwd
             /usr/bin/xcodebuild -project ./iOSProj/Unity-iPhone.xcodeproj -scheme  Unity-iPhone  -configuration Release -archivePath jenkins-test.xcarchive archive
             echo "Create Archive finished..."
-            '''
+            """
         }
     }
      
