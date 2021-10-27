@@ -1,8 +1,6 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-// Put this memu command script into Assets/Editor/
-
 class ExportTool {
     static void ExportXcodeProject() {
 
