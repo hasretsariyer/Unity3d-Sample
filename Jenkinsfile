@@ -12,9 +12,11 @@ pipeline {
         stage('iOS Build') {
             steps {
                sh '''
-                rm -rf Builds
+                rm -rf outputFolder
+                mkdir outputFolder
+                
                 echo "Unity Build starting..."
-                /Applications/Unity/Hub/Editor/2020.3.20f1/Unity.app/Contents/MacOS/Unity -quit -batchmode -projectPath ${PWD} -executeMethod "ExportTool.ExportXcodeProject" -buildType $build_type -logFile export.log
+                /Applications/Unity/Hub/Editor/2020.3.20f1/Unity.app/Contents/MacOS/Unity -quit -batchmode -projectPath ${PWD} -executeMethod "ExportTool.ExportXcodeProject" -buildType $build_type -logFile ./outputFolder/export.log
                 echo "Unity Build finished..."
                 '''
             }
@@ -35,8 +37,8 @@ pipeline {
 
                 ruby updateExportOptions.rb ./temp.plist ./exportOptions.plist
                 cat ./exportOptions.plist
-
-                /usr/bin/xcodebuild -project ./iOSProj/Unity-iPhone.xcodeproj -scheme Unity-iPhone -sdk iphoneos -configuration Release archive -archivePath jenkins-test.xcarchive clean CODE_SIGN_STYLE=Manual  COMPILER_INDEX_STORE_ENABLE=NO CODE_SIGN_IDENTITY="iPhone Distribution" PROVISIONING_PROFILE=$UUID PROVISIONING_PROFILE_SPECIFIER="$PROVISIONING_PROFILE_SPECIFIER" DEVELOPMENT_TEAM=$TEAM_ID EXPANDED_CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGNING_ALLOWED="NO"
+                
+                /usr/bin/xcodebuild -project ./iOSProj/Unity-iPhone.xcodeproj -scheme Unity-iPhone -sdk iphoneos -configuration Release archive -archivePath ./outputFolder/jenkins-test.xcarchive clean CODE_SIGN_STYLE=Manual  COMPILER_INDEX_STORE_ENABLE=NO CODE_SIGN_IDENTITY="iPhone Distribution" PROVISIONING_PROFILE=$UUID PROVISIONING_PROFILE_SPECIFIER="$PROVISIONING_PROFILE_SPECIFIER" DEVELOPMENT_TEAM=$TEAM_ID EXPANDED_CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGNING_ALLOWED="NO"
 
                 echo "Create Archive finished..."
                 '''
@@ -47,7 +49,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Export ipa starting..."
-                /usr/bin/xcodebuild -exportArchive -archivePath jenkins-test.xcarchive -exportPath ./ -exportOptionsPlist exportOptions.plist
+                /usr/bin/xcodebuild -exportArchive -archivePath jenkins-test.xcarchive -exportPath ./outputFolder -exportOptionsPlist exportOptions.plist
                 echo "Export ipa finished..."
                 '''
             }
@@ -64,6 +66,10 @@ pipeline {
             }
 
         }
-
+        post {
+            always {
+                archiveArtifacts artifacts: '**/*.xcarchive.*', onlyIfSuccessful: true
+            }
+        }
     }
 }
