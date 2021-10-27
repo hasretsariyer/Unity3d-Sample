@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>        
 	<key>teamID</key>
-    <string>T9P2R7YH4K</string>
+        <string>team-id</string>
 	<key>method</key>
 	<string>ad-hoc</string>
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>io*</key>
-		<string>Ad Hoc - Apps io.*</string>
+		<string>apps name</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>iOS Distribution</string>
