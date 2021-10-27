@@ -8,7 +8,7 @@
 	<string>ad-hoc</string>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>io.unity.sample1</key>
+		<key>io*</key>
 		<string>Ad Hoc - Apps io.*</string>
 	</dict>
 	<key>signingCertificate</key>
