@@ -5,7 +5,7 @@ pipeline {
     parameters {
         choice(name: 'build_type', choices: 'Release\nDebug', description: 'Select build type')
         file(name: 'uploaded_file', description: 'archive')
-        string(name: 'provisioning_profile_path', defaultValue: '${PWD}/../provisioning-profiles/test.mobileprovision', description: 'Enter your provisioning profile file path')
+        string(name: 'provisioning_profile_path', defaultValue: '../provisioning-profiles/test.mobileprovision', description: 'Enter your provisioning profile file path')
     }
 
     stages {
