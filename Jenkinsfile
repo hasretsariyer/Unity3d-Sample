@@ -50,7 +50,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Export ipa starting..."
-                /usr/bin/xcodebuild -exportArchive -archivePath jenkins-test.xcarchive -exportPath ./outputFolder -exportOptionsPlist exportOptions.plist
+                /usr/bin/xcodebuild -exportArchive -archivePath ./outputFolder/jenkins-test.xcarchive -exportPath ./outputFolder -exportOptionsPlist exportOptions.plist
                 echo "Export ipa finished..."
                 '''
             }
@@ -66,7 +66,7 @@ pipeline {
                 echo "Deploy to Appcircle"
                 pwd
                 echo $BUILD_URL
-                appcircle upload --app=./Myproject1.ipa --profileId=68d1bee0-2e98-4213-9d2f-0f7529aeb74b --message="Build Url->$BUILD_URL"
+                appcircle upload --app=./outputFolder/Myproject1.ipa --profileId=68d1bee0-2e98-4213-9d2f-0f7529aeb74b --message="Build Url->$BUILD_URL"
                 '''
             }
         }
