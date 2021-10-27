@@ -63,8 +63,8 @@ class ExportTool {
 ```
 
 # Parameters
+<img width="886" alt="Screen Shot 2021-10-27 at 20 34 28" src="https://user-images.githubusercontent.com/20642286/139139386-8f4d34e4-40c8-4f80-be51-2c734b780768.png">
 
-<img width="886" alt="Screen Shot 2021-10-27 at 20 34 28" src="https://user-images.githubusercontent.com/20642286/139117060-e6edd17d-0a0d-4782-8b2d-1c24b95fb86d.png">
 
 ## File upload issue:
 If i look in the workspace of the job, the file which was selected as a parameter hasn't bee uploaded into the workspace, this is the bug.
