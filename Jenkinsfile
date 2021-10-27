@@ -12,10 +12,6 @@ pipeline {
         stage('iOS Build') {
             steps {
                sh '''
-                echo $PATH
-                tool 'appcircle'
-                
-                ls /Users/hasretsariyer/.nvm/versions/node/v13.12.0/bin
                 rm -rf outputFolder
                 mkdir outputFolder
                 
