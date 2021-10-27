@@ -18,8 +18,10 @@ pipeline {
            # https://github.com/MarkEWaite/jenkins-bugs/blob/JENKINS-47333/Jenkinsfile#L11
            
            security cms -D -i $provisioning_profile_path >> temp.plist
-           env.PROVISIONING_PROFILE_SPECIFIER=$(/usr/libexec/PlistBuddy -c 'print ":Name"' temp.plist)
-           env.UUID=$(/usr/libexec/PlistBuddy -c 'print ":UUID"' temp.plist)
+           PROVISIONING_PROFILE_SPECIFIER="$(/usr/libexec/PlistBuddy -c 'print ":Name"' temp.plist)"
+           UUID="$(/usr/libexec/PlistBuddy -c 'print ":UUID"' temp.plist)"
+           env.profile_Specifier = $PROVISIONING_PROFILE_SPECIFIER
+           env.uuid = $UUID
            '''
         }
      }
