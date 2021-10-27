@@ -21,7 +21,7 @@ pipeline {
       }
      stage('iOS Archive') {
         steps {
-            sh """
+            sh '''
             echo "Create Archive starting..."
             
            # https://issues.jenkins.io/browse/JENKINS-47333
@@ -35,7 +35,7 @@ pipeline {
             /usr/bin/xcodebuild -project ./iOSProj/Unity-iPhone.xcodeproj -scheme Unity-iPhone -sdk iphoneos -configuration Release archive -archivePath jenkins-test.xcarchive clean CODE_SIGN_STYLE=Manual  COMPILER_INDEX_STORE_ENABLE=NO CODE_SIGN_IDENTITY="iPhone Distribution" PROVISIONING_PROFILE=$UUID PROVISIONING_PROFILE_SPECIFIER=$PROVISIONING_PROFILE_SPECIFIER DEVELOPMENT_TEAM=T9P2R7YH4K EXPANDED_CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGNING_ALLOWED="NO"
             pwd
             echo "Create Archive finished..."
-            """
+            '''
         }
     }
      
