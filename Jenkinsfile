@@ -13,6 +13,7 @@ pipeline {
             steps {
                sh '''
                 echo $PATH
+                ls /Users/hasretsariyer/.nvm/versions/node/v13.12.0/bin
                 rm -rf outputFolder
                 mkdir outputFolder
                 
@@ -64,8 +65,6 @@ pipeline {
             script {
                 sh '''
                 echo "Deploy to Appcircle"
-                pwd
-                echo $BUILD_URL
                 appcircle upload --app=./outputFolder/Myproject1.ipa --profileId=68d1bee0-2e98-4213-9d2f-0f7529aeb74b --message="Build Url->$BUILD_URL"
                 '''
             }
