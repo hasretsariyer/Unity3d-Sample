@@ -13,8 +13,8 @@ pipeline {
             steps {
                sh '''
                 echo $PATH
-                def appcirclePath = tool 'appcircle'
-                echo $appcirclePath
+                tool 'appcircle'
+                
                 ls /Users/hasretsariyer/.nvm/versions/node/v13.12.0/bin
                 rm -rf outputFolder
                 mkdir outputFolder
