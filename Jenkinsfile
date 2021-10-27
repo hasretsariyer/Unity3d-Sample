@@ -12,6 +12,7 @@ pipeline {
         stage('iOS Build') {
             steps {
                sh '''
+                echo $PATH
                 rm -rf outputFolder
                 mkdir outputFolder
                 
