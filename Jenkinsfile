@@ -59,13 +59,5 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'outputFolder/**/*.*'
         }
-        success {
-            script {
-                sh '''
-                echo "Deploy to Appcircle"
-                /Users/hasretsariyer/.nvm/versions/node/v13.12.0/bin/appcircle upload --app=./outputFolder/Myproject1.ipa --profileId=68d1bee0-2e98-4213-9d2f-0f7529aeb74b --message="Build Url->$BUILD_URL"
-                '''
-            }
-        }
     }
 }
