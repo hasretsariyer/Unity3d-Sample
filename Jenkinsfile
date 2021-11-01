@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage("iOS Unity Build") {     
             steps {
-                iOSUnityBuild pwd(), params.build_type
+                iOSUnityBuild pwd(), params.build_type, "./outputFolder1"
             }
         }
 
@@ -23,13 +23,13 @@ pipeline {
 
         stage("iOS IPA Export") {       
             steps {
-                iOSExportIPA "./outputFolder/jenkins-test1.xcarchive", "./outputFolder"
+                iOSExportIPA "./outputFolder/jenkins-test1.xcarchive", "./outputFolder1"
             }
         }
     }
     post {
         always {
-            archiveArtifacts artifacts: 'outputFolder/**/*.*'
+            archiveArtifacts artifacts: 'outputFolder1/**/*.*'
         }
     }
 }
