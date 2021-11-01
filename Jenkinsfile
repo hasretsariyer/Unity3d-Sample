@@ -20,5 +20,11 @@ pipeline {
                 iOSArchive params.provisioning_profile_path, "./outputFolder"
             }
         }
+
+        stage("IPA Export") {       
+            steps {
+                iOSExportIPA ()
+            }
+        }
     }
 }
