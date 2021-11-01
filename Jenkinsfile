@@ -17,13 +17,13 @@ pipeline {
 
         stage("iOS Archive") {       
             steps {
-                iOSArchive params.provisioning_profile_path, "./outputFolder/jenkins-test.xcarchive"
+                iOSArchive params.provisioning_profile_path, "./outputFolder/jenkins-test1.xcarchive"
             }
         }
 
         stage("iOS IPA Export") {       
             steps {
-                iOSExportIPA "./outputFolder/jenkins-test.xcarchive", "./outputFolder"
+                iOSExportIPA "./outputFolder/jenkins-test1.xcarchive", "./outputFolder"
             }
         }
     }
