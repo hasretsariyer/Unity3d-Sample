@@ -11,19 +11,19 @@ pipeline {
     stages {
         stage("iOS Unity Build") {     
             steps {
-                iOSUnityBuild pwd(), params.build_type, "./outputFolder1"
+                iOSUnityBuild pwd(), params.build_type, "./builds"
             }
         }
 
         stage("iOS Archive") {       
             steps {
-                iOSArchive params.provisioning_profile_path, "./outputFolder/jenkins-test1.xcarchive"
+                iOSArchive params.provisioning_profile_path, "./builds/jenkins-unity.xcarchive"
             }
         }
 
         stage("iOS IPA Export") {       
             steps {
-                iOSExportIPA "./outputFolder/jenkins-test1.xcarchive", "./outputFolder1"
+                iOSExportIPA "./builds/jenkins-unity.xcarchive", "./builds"
             }
         }
     }
