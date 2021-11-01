@@ -15,11 +15,11 @@ pipeline {
 //             }
 //         }
 
-//         stage("iOS Archive") {       
-//             steps {
-//                 iOSArchive params.provisioning_profile_path, "./builds/jenkins-unity.xcarchive"
-//             }
-//         }
+        stage("iOS Archive") {       
+            steps {
+                iOSArchive params.provisioning_profile_path, "./builds/jenkins-unity.xcarchive"
+            }
+        }
 
         stage("iOS IPA Export") {       
             steps {
