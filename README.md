@@ -70,7 +70,9 @@ class ExportTool {
 If i look in the workspace of the job, the file which was selected as a parameter hasn't bee uploaded into the workspace, this is the bug.
 
 https://issues.jenkins.io/browse/JENKINS-47333
+
 https://github.com/jenkins-infra/jenkins.io/pull/2388
+
 https://github.com/MarkEWaite/jenkins-bugs/blob/JENKINS-47333/Jenkinsfile#L11
 
 Alternative solution: Added string parameter
