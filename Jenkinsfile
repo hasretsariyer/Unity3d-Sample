@@ -1,4 +1,4 @@
-@Library(jenkins-shared-lib-example@main)
+@Library(jenkins-shared-lib-example)
 
 node {
     stage("iOS Unity Build") {     
