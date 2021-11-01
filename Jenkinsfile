@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage("iOS Unity Build") {     
             steps {
-                iOSUnityBuild pwd(), "Release"
+                iOSUnityBuild pwd(), params.build_type
             }
         }
 
