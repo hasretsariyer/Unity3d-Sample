@@ -9,11 +9,11 @@ pipeline {
     }
 
     stages {
-//         stage("iOS Unity Build") {     
-//             steps {
-//                 iOSUnityBuild pwd(), params.build_type, "./builds"
-//             }
-//         }
+        stage("iOS Unity Build") {     
+            steps {
+                iOSUnityBuild pwd(), params.build_type, "./builds"
+            }
+        }
 
         stage("iOS Archive") {       
             steps {
@@ -29,7 +29,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: 'outputFolder1/**/*.*'
+            archiveArtifacts artifacts: 'builds/**/*.*'
         }
     }
 }
