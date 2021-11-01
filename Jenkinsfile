@@ -17,7 +17,7 @@ pipeline {
 
         stage("iOS Archive") {       
             steps {
-                iOSArchive params.provisioning_profile_path, "./iOSProj/Unity-iPhone.xcodeproj", "./outputFolder/jenkins-test.xcarchive"
+                iOSArchive params.provisioning_profile_path, pwd(), "./outputFolder/jenkins-test.xcarchive"
             }
         }
     }
