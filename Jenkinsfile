@@ -10,11 +10,15 @@ pipeline {
 
     stages {
         stage("iOS Unity Build") {     
-            iOSUnityBuild pwd(), "Release"
+            steps {
+                iOSUnityBuild pwd(), "Release"
+            }
         }
 
-        stage("iOS Archive") {     
-            iOSArchive $provisioning_profile_path, "./iOSProj/Unity-iPhone.xcodeproj", "./outputFolder/jenkins-test.xcarchive"
+        stage("iOS Archive") {       
+            steps {
+                iOSArchive $provisioning_profile_path, "./iOSProj/Unity-iPhone.xcodeproj", "./outputFolder/jenkins-test.xcarchive"
+            }
         }
     }
 }
