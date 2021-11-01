@@ -9,17 +9,17 @@ pipeline {
     }
 
     stages {
-        stage("iOS Unity Build") {     
-            steps {
-                iOSUnityBuild pwd(), params.build_type, "./builds"
-            }
-        }
+//         stage("iOS Unity Build") {     
+//             steps {
+//                 iOSUnityBuild pwd(), params.build_type, "./builds"
+//             }
+//         }
 
-        stage("iOS Archive") {       
-            steps {
-                iOSArchive params.provisioning_profile_path, "./builds/jenkins-unity.xcarchive"
-            }
-        }
+//         stage("iOS Archive") {       
+//             steps {
+//                 iOSArchive params.provisioning_profile_path, "./builds/jenkins-unity.xcarchive"
+//             }
+//         }
 
         stage("iOS IPA Export") {       
             steps {
