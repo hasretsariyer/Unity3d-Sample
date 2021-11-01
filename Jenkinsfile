@@ -1,5 +1,3 @@
-@Library(jenkins-shared-lib-example)
-
 node {
     stage("iOS Unity Build") {     
         iOSUnityBuild pwd(), "Release"
