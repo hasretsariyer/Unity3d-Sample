@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        stage("IPA Export") {       
+        stage("iOS IPA Export") {       
             steps {
                 iOSExportIPA "./outputFolder/jenkins-test.xcarchive", "./outputFolder"
             }
