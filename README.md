@@ -87,13 +87,13 @@ Alternative solution: Added string parameter
               ...
             }
         }
-        stage('iOS Archive') {
+        stage('iOS Archive & Update exportOptions.plist') {
             steps {
               ...
             }
         }
 
-        stage('iOS iPA & Update exportOptions.plist') {
+        stage('iOS iPA') {
             steps {
               ...
             }
