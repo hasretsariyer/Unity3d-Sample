@@ -4,7 +4,7 @@ pipeline {
 
     parameters {
         choice(name: 'build_type', choices: 'Release\nDebug', description: 'Select build type')
-        file(name: 'uploaded_file', description: 'archive')
+        file(name: 'uploaded_file', description: 'Enter your provisioning profile file')
         string(name: 'provisioning_profile_path', defaultValue: '../provisioning-profiles/test.mobileprovision', description: 'Enter your provisioning profile file path')
     }
 
