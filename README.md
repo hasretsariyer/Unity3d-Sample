@@ -111,6 +111,11 @@ Alternative solution: Added string parameter
     }
 }
 ```
+# Additional Steps
+ipa file is distributed via appcircle cli after successful build.
+Download appcircle cli -> https://github.com/appcircleio/appcircle-cli
+<img width="1060" alt="Screen Shot 2021-11-02 at 11 42 38" src="https://user-images.githubusercontent.com/20642286/139813739-7e383fbc-a262-472f-8460-c7662c305b2c.png">
+
 
 # Jenkins Stage View
 
